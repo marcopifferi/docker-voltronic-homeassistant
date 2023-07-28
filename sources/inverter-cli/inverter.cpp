@@ -111,6 +111,10 @@ bool cInverter::query(const char *cmd) {
   buf[n++] = crc & 0xff;
   buf[n++] = 0x0d;
 
+  while (n % 8 != 0) {
+    buf[n++] = 0x00;
+  }
+
   // Send buffer in hex
   char messagestart[128];
   char* messageptr = messagestart;
