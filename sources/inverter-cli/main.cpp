@@ -217,7 +217,11 @@ float batt_redischarge_voltage;
             ups_qpigs2_changed = true;
         }
 
-
+        lprintf("DEBUG: ups_qmod_changed %s, ups_qpiri_changed %s, ups_qpigs_changed %s, ups_qpigs2_changed %s", 
+            ups_qmod_changed ? "true" : "false", 
+            ups_qpiri_changed ? "true" : "false", 
+            ups_qpigs_changed ? "true" : "false",
+            ups_qpigs2_changed ? "true": "false");
       // Once we receive all queries print it to screen
         if (ups_qmod_changed && ups_qpiri_changed && ups_qpigs_changed && ups_qpigs2_changed) {
             ups_qmod_changed = false;

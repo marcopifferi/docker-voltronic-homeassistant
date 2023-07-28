@@ -101,7 +101,7 @@ bool cInverter::query(const char *cmd) {
   tcflush(fd, TCOFLUSH);
 
   // ---------------------------------------------------------------
-
+  lprintf("DEBUG:  Execute command %s", cmd);
   // Generating CRC for a command
   uint16_t crc = cal_crc_half((uint8_t*)cmd, strlen(cmd));
   n = strlen(cmd);
