@@ -307,6 +307,7 @@ float batt_redischarge_voltage;
                 if (debugFlag) {
                     printf("INVERTER: ampfactor from config is %.2f\n", ampfactor);
                     printf("INVERTER: wattfactor from config is %.2f\n", wattfactor);
+                    printf("INVERTER: MPPT count from config is %d\n", mppt_count);
                 }
 
                 pv_input_current = pv_input_current * ampfactor;
