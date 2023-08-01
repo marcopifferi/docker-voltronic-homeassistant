@@ -132,6 +132,7 @@ float pv2_input_current;
 float pv2_input_voltage;
 float pv2_input_watts;
 int pv2_charging_power;
+int pv_total_charging_power;
 
 // Reply_qpiri
 float grid_voltage_rating;
@@ -301,6 +302,8 @@ float batt_redischarge_voltage;
                         );
                 }
 
+                pv_total_charging_power = pv_charging_power + pv2_charging_power;
+
                 // There appears to be a discrepancy in actual DMM measured current vs what the meter is
                 // telling me it's getting, so lets add a variable we can multiply/divide by to adjust if
                 // needed.  This should be set in the config so it can be changed without program recompile.
@@ -370,6 +373,7 @@ float batt_redischarge_voltage;
                     printf("  \"PV2_in_watts\":%.1f,\n", pv2_input_watts);      // = (scc_voltage * pv2_input_current) * wattfactor;
                     printf("  \"PV2_charging_power\":%d,\n", pv2_charging_power); // QPIGS2
                 }
+                printf("  \"PV_total_charging_power\":%d,\n", pv_total_charging_power);
                 printf("  \"Warnings\":\"%s\"\n", warnings->c_str());     //
                 printf("}\n");
 
